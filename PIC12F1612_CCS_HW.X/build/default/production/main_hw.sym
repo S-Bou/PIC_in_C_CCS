@@ -4,6 +4,9 @@
 004-005 @WRITE_PROGRAM_MEMORY8.P4
 006-007 @READ_PACKED_MEMORY.P1
 006-007 @WRITE_PACKED_MEMORY.P2
+021-022 main.mytime
+023     main.@SCRATCH1
+024     @delay_ms1.P1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -12,29 +15,30 @@
 111.6   C1OUT
 191-192 @WRITE_PROGRAM_MEMORY8.P1
 191-192 @READ_PROGRAM_MEMORY8.P2
-291     CCP_1_LOW
 291     CCP_1
+291     CCP_1_LOW
 292     CCP_1_HIGH
-298     CCP_2
 298     CCP_2_LOW
+298     CCP_2
 299     CCP_2_HIGH
 715.2   WDTSTATE
 
 ROM Allocation:
-000003  @cinit1
-000003  main
-00000A  @cinit2
+000003  @delay_ms1
+000019  @cinit1
+000019  main
+000023  @cinit2
 
 Project Directory:
     D:\Projects\PIC\PIC_in_C_CCS\PIC12F1612_CCS_HW.X\
 
 Project Files:
-    main_hw.c                                               [24-sep.-23 13:40  CRC=B96F2DBD]
+    main_hw.c                                               [24-sep.-23 19:51  CRC=B573C767]
     ..\..\..\..\Programas\PICC\devices\12f1612.h            [21-feb.-20 15:46  CRC=2507CD14]
 
-Source signature=037EC7E5
+Source signature=FF83618F
 Program memory checksum=0000
-Hex file CRC=2B97
+Hex file CRC=1124
 
 Units:
     D:\Projects\PIC\PIC_in_C_CCS\PIC12F1612_CCS_HW.X\main_hw (main)

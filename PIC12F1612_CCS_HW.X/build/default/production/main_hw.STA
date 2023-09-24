@@ -1,44 +1,45 @@
 
-ROM used:   11/2048 (1%)
-            11/2048 (1%) including unused fragments
+ROM used:   81/2048 (4%)
+            81/2048 (4%) including unused fragments
 
-            0.0 Average locations per line
-            11.0 Average locations per statement
+            0.1 Average locations per line
+            10.1 Average locations per statement
 
-RAM used:   5/256 (2%) at main() level
-            16/256 (6%) worst case
+RAM used:   8/256 (3%) at main() level
+            20/256 (8%) worst case
 
 Stack used: 0 worst case (0 in main + 0 for interrupts)
 Stack size: 16
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   14     1 100  main_hw.c
+   28     8 100  main_hw.c
  1183     0   0  ..\..\..\..\Programas\PICC\devices\12f1612.h
 ----- -----
- 1197     1 Total
+ 1211     8 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
-0      8  73    0     12  2.0  main
+0     22  27    1             @delay_ms1
+0     56  69    3    143  2.2  main
  Inline         0             @cinit1
 
 Program metrics:
     Functions               1
-    Statements              1
-    Comments                231
-    Volume (V)              13
-    Difficulty (D)          1.0
-    Effort to implement (E) 13
+    Statements              8
+    Comments                233
+    Volume (V)              147
+    Difficulty (D)          2.0
+    Effort to implement (E) 290
     Time to implement (T)   0 minutes
     Est Delivered Bugs (B)  0
     Cyclomatic Complexity   1
-    Maintainability (MI)    107
+    Maintainability (MI)    61
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     3  0  
-00003-007FF     8  2037  
+00003-007FF    78  1967  
 
 
 

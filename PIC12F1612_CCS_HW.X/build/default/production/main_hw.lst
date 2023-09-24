@@ -1,16 +1,16 @@
-CCS PCM C Compiler, Version 5.093, 4770               24-sep.-23 13:53
+CCS PCM C Compiler, Version 5.093, 4770               24-sep.-23 19:51
 
                Filename:   D:\Projects\PIC\PIC_in_C_CCS\PIC12F1612_CCS_HW.X\build\default\production\main_hw.lst
 
-               ROM used:   11 words (1%)
-                           Largest free fragment is 2037
-               RAM used:   5 (2%) at main() level
-                           16 (6%) worst case
+               ROM used:   81 words (4%)
+                           Largest free fragment is 1967
+               RAM used:   8 (3%) at main() level
+                           20 (8%) worst case
                Stack used: 0 locations
                Stack size: 16
 
 0000:  MOVLP  00
-0001:  GOTO   003
+0001:  GOTO   019
 0002:  NOP
 .................... /*
 ....................  * File:   main_hw.c
@@ -36,19 +36,103 @@ CCS PCM C Compiler, Version 5.093, 4770               24-sep.-23 13:53
 .................... #list
 .................... 
 .................... 
+.................... #fuses INTRC_IO, NOWDT
+.................... #use delay (clock = 16000000)
+0003:  MOVLW  20
+0004:  MOVWF  05
+0005:  MOVLW  04
+0006:  MOVWF  04
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   018
+000A:  MOVLW  05
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  2E
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  GOTO   016
+0016:  DECFSZ 00,F
+0017:  GOTO   00A
+0018:  RETURN
+.................... //#use standard_io(a)
+.................... 
 .................... void main(void) {
-0003:  MOVLB  03
-0004:  CLRF   0C
-0005:  MOVLB  02
-0006:  CLRF   12
-0007:  CLRF   11
-0008:  CLRF   14
-0009:  CLRF   13
-....................     return;
+0019:  MOVLW  78
+001A:  MOVLB  01
+001B:  MOVWF  19
+001C:  MOVLB  03
+001D:  CLRF   0C
+001E:  MOVLB  02
+001F:  CLRF   12
+0020:  CLRF   11
+0021:  CLRF   14
+0022:  CLRF   13
+....................     
+....................     //setup_oscillator(OSC_16MHZ);
+....................     output_low(PIN_A2);
+0023:  MOVLB  01
+0024:  BCF    0C.2
+0025:  MOVLB  02
+0026:  BCF    0C.2
+....................     int16 mytime = 100;
+0027:  MOVLB  00
+0028:  CLRF   22
+0029:  MOVLW  64
+002A:  MOVWF  21
+....................             
+....................     while(TRUE){
+....................         output_high(PIN_A2);
+002B:  MOVLB  01
+002C:  BCF    0C.2
+002D:  MOVLB  02
+002E:  BSF    0C.2
+....................         delay_ms(mytime);
+002F:  MOVLB  00
+0030:  MOVF   22,W
+0031:  MOVWF  23
+0032:  INCF   23,F
+0033:  DECF   23,F
+0034:  BTFSC  03.2
+0035:  GOTO   03A
+0036:  MOVLW  FF
+0037:  MOVWF  24
+0038:  CALL   003
+0039:  GOTO   033
+003A:  MOVF   21,W
+003B:  MOVWF  24
+003C:  CALL   003
+....................         output_low(PIN_A2);
+003D:  MOVLB  01
+003E:  BCF    0C.2
+003F:  MOVLB  02
+0040:  BCF    0C.2
+....................         delay_ms(mytime);
+0041:  MOVLB  00
+0042:  MOVF   22,W
+0043:  MOVWF  23
+0044:  INCF   23,F
+0045:  DECF   23,F
+0046:  BTFSC  03.2
+0047:  GOTO   04C
+0048:  MOVLW  FF
+0049:  MOVWF  24
+004A:  CALL   003
+004B:  GOTO   045
+004C:  MOVF   21,W
+004D:  MOVWF  24
+004E:  CALL   003
+004F:  GOTO   02B
+....................     }
 .................... }
-000A:  SLEEP
+0050:  SLEEP
 
 Configuration Fuses:
-   Word  1: 3FDF   ECH PUT MCLR NOPROTECT BROWNOUT NOCLKOUT
-   Word  2: 1FFF   NOWRT ZCDDIS PLLEN STVREN BORV19 NOLPBOR NODEBUG NOLVP
+   Word  1: 3FDC   INTRC_IO PUT MCLR NOPROTECT BROWNOUT NOCLKOUT
+   Word  2: 1EFF   NOWRT ZCDDIS NOPLLEN STVREN BORV19 NOLPBOR NODEBUG NOLVP
    Word  3: 3F9F   WDTSW NOWDT WDTWIN_SW WDTCLK_SW
