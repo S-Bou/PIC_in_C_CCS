@@ -1,0 +1,14 @@
+[PROJECT]
+Target=build\default\production\main_hw.hex
+Processor_Text=PIC12F1612
+CCSVersion=5.093
+Compiler=PCM
+[Target Data]
+FileList=main_hw.c
+[build\default\production\main_hw.c]
+Type=4
+[mru-list]
+1=build\default\production\main_hw.c
+[Units]
+Count=1
+1=main_hw (main)
